@@ -1,0 +1,15 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background: transparent; 
+  border-bottom: 1px solid black; 
+  z-index: 1000;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

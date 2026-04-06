@@ -1,37 +1,115 @@
-.hero {
-  position: relative;
+.cover {
   width: 100%;
-  height: 80vh;
-  background-image: url("../../img/Slika1.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: black;
+
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.hero-overlay {
+.cover img {
   width: 100%;
-  text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.3); 
-  padding: 20px;
+  height: auto;
+  display: block;
 }
 
-.hero-overlay h1 {
-  font-size: 3rem;
-  margin: 0;
+.content {
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.content p {
+  font-family: 'Inter', serif;
+  font-size: 25px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.buttons button {
+  padding: 12px 24px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.buttons button:hover {
+  background: gray;
 }
 
 @media (max-width: 768px) {
-  .hero-overlay h1 {
-    font-size: 2rem;
+  .content h1 {
+    font-size: 28px;
+  }
+
+  .content p {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-overlay h1 {
-    font-size: 1.5rem;
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-row {
+  margin-top: 50px;
+  align-items: stretch;
+}
+
+.story-text {
+  text-align: left;
+  padding: 30px;
+}
+
+.story-text.right {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.story-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+  .story-text {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .story-text.right {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* linija ide gore */
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }

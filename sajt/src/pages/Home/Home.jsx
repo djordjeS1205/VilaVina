@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import "./Home.css";
 import heroImage from "../../img/Slika1.jpeg";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   useEffect(() => {
@@ -52,6 +53,8 @@ const Home = () => {
     </div>
   </div>
 </section>
+
+<Footer />
     </>
   );
 };

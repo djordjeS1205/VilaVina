@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,10 +16,69 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHome = location.pathname === "/";
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar-custom ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-inner">
-        <h2 className="navbar-logo">VilaVina 🍷</h2>
+        <Link to="/" className="navbar-logo" onClick={closeMenu}>
+          VilaVina 🍷
+        </Link>
+
+        <div className="nav-desktop">
+          {!isHome && (
+            <Link to="/" className="nav-link">
+              Naslovna
+            </Link>
+          )}
+          <Link to="/about" className="nav-link">
+            O nama
+          </Link>
+          <Link to="/wines" className="nav-link">
+            Vina
+          </Link>
+          <Link to="/visit" className="nav-link">
+            Posetite nas
+          </Link>
+          <Link to="/blog" className="nav-link">
+            Blog
+          </Link>
+        </div>
+
+        <button
+          className={`burger ${menuOpen ? "burger-open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Otvori meni"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div className={`mobile-menu ${menuOpen ? "mobile-menu-open" : ""}`}>
+        {!isHome && (
+          <Link to="/" className="mobile-link" onClick={closeMenu}>
+            Naslovna
+          </Link>
+        )}
+        <Link to="/about" className="mobile-link" onClick={closeMenu}>
+          O nama
+        </Link>
+        <Link to="/wines" className="mobile-link" onClick={closeMenu}>
+          Vina
+        </Link>
+        <Link to="/visit" className="mobile-link" onClick={closeMenu}>
+          Posetite nas
+        </Link>
+        <Link to="/blog" className="mobile-link" onClick={closeMenu}>
+          Blog
+        </Link>
       </div>
     </nav>
   );

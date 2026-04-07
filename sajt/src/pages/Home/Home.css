@@ -1,3 +1,4 @@
+/* COVER */
 .cover {
   width: 100%;
   background: black;
@@ -13,6 +14,7 @@
   display: block;
 }
 
+/* CONTENT */
 .content {
   width: 100%;
   background: black;
@@ -21,6 +23,7 @@
   text-align: center;
 }
 
+/* NASLOV */
 .content h1 {
   font-family: 'Playfair Display', serif;
   font-size: 42px;
@@ -29,14 +32,35 @@
   margin-bottom: 60px;
 }
 
-.content p {
-  font-family: 'Inter', serif;
-  font-size: 25px;
-  line-height: 1.8;
-  letter-spacing: 0.5px;
-  font-weight: 300;
+/* STORY SEKCIJA */
+.story-row {
+  margin-top: 50px;
+  align-items: stretch;
 }
 
+/* TEKST BLOKOVI */
+.story-text {
+  text-align: left;
+  padding: 30px;
+}
+
+/* BELA LINIJA */
+.story-text.right {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* PARAGRAF (FINAL) */
+.story-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+
+  text-align: justify;
+}
+
+/* BUTTONS */
 .buttons {
   display: flex;
   justify-content: center;
@@ -58,16 +82,7 @@
   background: gray;
 }
 
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 28px;
-  }
-
-  .content p {
-    font-size: 16px;
-  }
-}
-
+/* ANIMACIJA */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -79,37 +94,46 @@
   transform: translateY(0);
 }
 
-.story-row {
-  margin-top: 50px;
-  align-items: stretch;
-}
-
-.story-text {
-  text-align: left;
-  padding: 30px;
-}
-
-.story-text.right {
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.story-text p {
-  font-family: 'Inter', sans-serif;
-  font-size: 20px;
-  line-height: 1.9;
-  letter-spacing: 0.3px;
-}
-
+/* 📱 MOBILE */
 @media (max-width: 768px) {
+
+  .content {
+    padding: 60px 16px;
+  }
+
+  .content h1 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  .story-row {
+    margin-top: 20px;
+  }
+
   .story-text {
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0;
+  }
+
+  .story-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: left; /* bolje za mobile */
   }
 
   .story-text.right {
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* linija ide gore */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 20px;
     padding-top: 20px;
+  }
+
+  .buttons {
+    margin-top: 30px;
+  }
+
+  .buttons button {
+    width: 100%;
+    max-width: 250px;
   }
 }

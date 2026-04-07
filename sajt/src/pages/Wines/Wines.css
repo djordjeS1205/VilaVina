@@ -1,0 +1,12 @@
+.page-placeholder {
+  min-height: 100vh;
+  background: black;
+  color: white;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.page-placeholder h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+}

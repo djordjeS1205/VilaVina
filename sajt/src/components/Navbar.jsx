@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
+import logoImage from "../img/Logo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = () => {
     <nav className={`navbar-custom ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          VilaVina 🍷
+  <img src={logoImage} alt="Vila Vina logo" className="navbar-logo-image" />
         </Link>
 
         <div className="nav-desktop">

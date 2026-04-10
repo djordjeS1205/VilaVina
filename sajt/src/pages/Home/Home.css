@@ -163,3 +163,46 @@
     padding-top: 50px;
   }
 }
+
+.home-buttons-section {
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 20px 80px;
+}
+
+.home-action-btn {
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.home-action-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 768px) {
+  .home-buttons-section {
+    padding: 10px 16px 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-action-btn {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+}

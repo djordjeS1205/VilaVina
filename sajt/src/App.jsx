@@ -4,6 +4,7 @@ import About from "./pages/About/About";
 import Wines from "./pages/Wines/Wines";
 import Visit from "./pages/Visit/Visit";
 import Blog from "./pages/Blog/Blog";
+import BlogDetails from "./pages/Blog/BlogDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/wines" element={<Wines />} />
         <Route path="/visit" element={<Visit />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogDetails />} />
       </Routes>
     </BrowserRouter>
   );

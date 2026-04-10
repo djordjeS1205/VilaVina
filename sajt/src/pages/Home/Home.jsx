@@ -5,6 +5,7 @@ import heroImage from "../../img/Slika1.jpeg";
 import imageTwo from "../../img/Slika2.jpeg";
 import imageThree from "../../img/Slika3.jpeg";
 import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -94,6 +95,18 @@ Uticaj naše vinarije nadilazi samo proizvodnju vina, Milomirova vizionarska ide
             </div>
           </div>
         </div>
+
+        <div className="home-buttons-section">
+  <Link to="/about" className="home-action-btn">
+    O nama
+  </Link>
+  <Link to="/blog" className="home-action-btn">
+    Posetite naš blog
+  </Link>
+  <Link to="/visit" className="home-action-btn">
+    Poseta vinariji
+  </Link>
+</div>
 
       <Footer />
     </>

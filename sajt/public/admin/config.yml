@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: djordjeS1205/VilaVina
+  branch: main
+
+media_folder: "sajt/public/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "sajt/src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Naslov", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Kratak opis", name: "excerpt", widget: "text", required: false }
+      - { label: "Glavna slika", name: "image", widget: "image", required: false }
+      - { label: "Slug", name: "slug", widget: "string", hint: "npr. nova-sezona-degustacija" }
+      - { label: "Sadržaj", name: "body", widget: "markdown" }

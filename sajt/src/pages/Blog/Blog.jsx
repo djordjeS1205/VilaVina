@@ -13,8 +13,15 @@ const Blog = () => {
 
       <div className="blog-page">
         <section className="blog-hero">
-          <h1>Blog</h1>
-          <p>Priče iz naše vinarije, novosti, događaji i svet vina.</p>
+          <div className="blog-hero-overlay" />
+          <div className="blog-container blog-hero-content">
+            <span className="blog-hero-subtitle">Vila Vina Blog</span>
+            <h1>Priče, novosti i svet vina</h1>
+            <p>
+              Otkrijte priče iz naše vinarije, zanimljivosti o vinima, događaje,
+              savete i trenutke koje želimo da podelimo sa vama.
+            </p>
+          </div>
         </section>
 
         <section className="blog-list-section">

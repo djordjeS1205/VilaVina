@@ -2,7 +2,7 @@
 title: "Dobrodošli u našu vinariju"
 date: "2026-04-10"
 excerpt: "Upoznajte našu priču, ljubav prema vinu i ambijent koji stvaramo za sve ljubitelje autentičnih ukusa."
-image: "/uploads/vinarija-blog-1.jpg"
+image: "/uploads/vinarija-blog-1.jpeg"
 slug: "dobrodosli-u-nasu-vinariju"
 ---
 

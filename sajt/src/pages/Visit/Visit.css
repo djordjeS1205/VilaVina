@@ -1,12 +1,343 @@
-.page-placeholder {
+.visit-page {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 35%),
+    linear-gradient(to bottom, #060606, #0d0d0d 35%, #000000 100%);
+  color: #fff;
   min-height: 100vh;
-  background: black;
-  color: white;
-  padding-top: 120px;
-  text-align: center;
+  padding-top: 100px;
 }
 
-.page-placeholder h1 {
+.visit-container {
+  width: min(1280px, 92%);
+  margin: 0 auto;
+}
+
+.visit-hero {
+  position: relative;
+  min-height: 56vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 20px 80px;
+  overflow: hidden;
+}
+
+.visit-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.65)),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent 55%);
+  pointer-events: none;
+}
+
+.visit-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.visit-hero-subtitle,
+.visit-section-tag {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #c8b28a;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.visit-hero h1 {
   font-family: "Playfair Display", serif;
-  font-size: 42px;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.08;
+  margin-bottom: 18px;
+  color: #ffffff;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+}
+
+.visit-hero p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #d3d3d3;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.visit-contact-section {
+  padding: 10px 0 40px;
+}
+
+.visit-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.visit-contact-card {
+  text-decoration: none;
+  color: white;
+  padding: 28px 24px;
+  border-radius: 24px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.visit-contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.visit-contact-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #c8b28a;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.visit-contact-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.visit-contact-card p {
+  color: #d3d3d3;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.visit-story-section {
+  padding: 30px 0 40px;
+}
+
+.visit-story-row {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 42px;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.visit-story-row-reverse {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+.visit-text-box h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.1;
+  margin-bottom: 22px;
+  color: #ffffff;
+}
+
+.visit-text-box p {
+  color: #d9d9d9;
+  font-size: 18px;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.visit-image-box {
+  position: relative;
+}
+
+.visit-image-box::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  z-index: 0;
+  filter: blur(2px);
+}
+
+.visit-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  transition: transform 0.4s ease;
+}
+
+.visit-image:hover {
+  transform: scale(1.02);
+}
+
+.visit-map-section {
+  padding: 20px 0 100px;
+}
+
+.visit-map-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 34px;
+}
+
+.visit-map-header h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 56px);
+  margin-bottom: 16px;
+}
+
+.visit-map-header p {
+  color: #d3d3d3;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.visit-map-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  min-height: 540px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+}
+
+.visit-map-link-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.visit-map-frame {
+  width: 100%;
+  height: 540px;
+  border: 0;
+  filter: grayscale(1) contrast(1.08) brightness(0.78);
+}
+
+.visit-map-overlay-card {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 3;
+  max-width: 360px;
+  padding: 24px 22px;
+  border-radius: 24px;
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.visit-map-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #c8b28a;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.visit-map-overlay-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.visit-map-overlay-card p {
+  color: #d3d3d3;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.visit-map-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.visit-map-button:hover {
+  color: white;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 1100px) {
+  .visit-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-story-row,
+  .visit-story-row-reverse {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .visit-page {
+    padding-top: 90px;
+  }
+
+  .visit-hero {
+    min-height: 46vh;
+    padding: 70px 16px 50px;
+  }
+
+  .visit-hero p,
+  .visit-map-header p,
+  .visit-text-box p {
+    font-size: 17px;
+  }
+
+  .visit-image {
+    height: 360px;
+  }
+
+  .visit-map-card,
+  .visit-map-frame {
+    min-height: 420px;
+    height: 420px;
+  }
+
+  .visit-map-overlay-card {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .visit-contact-card h3 {
+    font-size: 24px;
+  }
+
+  .visit-image {
+    height: 300px;
+  }
+
+  .visit-map-overlay-card h3 {
+    font-size: 28px;
+  }
 }

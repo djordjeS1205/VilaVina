@@ -21,6 +21,8 @@ const Footer = () => {
     <a href="tel:+38169733169">+381 69 733 169</a>
     <br />
     <a href="tel:+381641766103">+381 64 17 66 103</a>
+    <br />
+    <a href="tel:+381641766103">+381 62 281 874</a>
   </p>
   <p>
     Adresa:<br />
@@ -52,8 +54,8 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-  <p className="footer-glow">VILA VINA - VINARIJA MILOSAVLJEVIĆ</p>
-      </div>
+  <p className="footer-marquee-text">VILA VINA - VINARIJA MILOSAVLJEVIĆ</p>
+</div>
     </footer>
   );
 };

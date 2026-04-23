@@ -24,8 +24,7 @@ const Visit = () => {
             <span className="visit-hero-subtitle">Posetite nas</span>
             <h1>Doživite Vila Vina iz prve ruke</h1>
             <p>
-              Rezervišite posetu, kontaktirajte nas direktno i otkrijte ambijent,
-              vina i gostoprimstvo koje želimo da podelimo sa svakim posetiocem.
+              Ovde vino ne počinje u čaši, već u vinogradu i strasti koja ga oblikuje. Svaka poseta otkriva priču koja se živi i deli.
             </p>
           </div>
         </section>

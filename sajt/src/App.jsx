@@ -5,6 +5,7 @@ import Wines from "./pages/Wines/Wines";
 import Visit from "./pages/Visit/Visit";
 import Blog from "./pages/Blog/Blog";
 import BlogDetails from "./pages/Blog/BlogDetails";
+import Order from "./pages/Order/Order";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/visit" element={<Visit />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetails />} />
+        <Route path="/order" element={<Order />} />
       </Routes>
     </BrowserRouter>
   );

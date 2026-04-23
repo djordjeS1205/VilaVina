@@ -27,7 +27,7 @@ const Navbar = () => {
     <nav className={`navbar-custom ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-  <img src={logoImage} alt="Vila Vina logo" className="navbar-logo-image" />
+          <img src={logoImage} alt="Vila Vina logo" className="navbar-logo-image" />
         </Link>
 
         <div className="nav-desktop">
@@ -47,6 +47,9 @@ const Navbar = () => {
           </Link>
           <Link to="/blog" className="nav-link">
             Blog
+          </Link>
+          <Link to="/order" className="nav-link">
+            Poruči vino
           </Link>
         </div>
 
@@ -79,6 +82,9 @@ const Navbar = () => {
         </Link>
         <Link to="/blog" className="mobile-link" onClick={closeMenu}>
           Blog
+        </Link>
+        <Link to="/order" className="mobile-link" onClick={closeMenu}>
+          Poruči vino
         </Link>
       </div>
     </nav>

@@ -3,19 +3,48 @@ import Navbar from "../../components/Navbar";
 import "./About.css";
 import Footer from "../../components/Footer";
 
-import about1 from "../../img/about1.jpeg";
 import about2 from "../../img/about2.jpeg";
 import about3 from "../../img/about3.jpeg";
-import about4 from "../../img/about6.jpeg";
+import about4 from "../../img/about4.jpeg";
 import about5 from "../../img/about5.jpeg";
-import about6 from "../../img/about4.jpeg";
 import about7 from "../../img/about7.jpeg";
 import about8 from "../../img/about8.jpg";
 import about9 from "../../img/about9.jpeg";
-import about10 from "../../img/about10.jpeg";
+import about11 from "../../img/about11.jpg";
+import about12 from "../../img/about12.jpg";
+import about13 from "../../img/about13.jpg";
+import about14 from "../../img/about14.jpg";
+import about15 from "../../img/about15.jpg";
+import about16 from "../../img/about16.jpg";
+import about17 from "../../img/about17.png";
+import about18 from "../../img/about18.jpeg";
+import about19 from "../../img/about19.jpg";
+import about20 from "../../img/about20.jpg";
+import about21 from "../../img/about21.jpeg";
+import about22 from "../../img/about22.jpeg";
+import about23 from "../../img/about23.jpeg";
+import about24 from "../../img/about24.jpeg";
 
-const imagesTop = [about1, about4, about2, about3, about5];
-const imagesBottom = [about7, about6, about8, about9, about10];
+import wine9 from "../../img/wine9.jpeg";
+
+const imagesONama = [about11, about5, about12];
+
+const imagesNasaPrica = [about2, about3, about13, about14, about15];
+
+const imagesMilomir = [about4, about7, about16, about17];
+
+const imagesBrend = [about18, wine9];
+
+const imagesVinogradi = [
+  about19,
+  about22,
+  about21,
+  about23,
+  about20,
+  about24,
+  about9,
+  about8,
+];
 
 const timelineData = [
   {
@@ -45,24 +74,45 @@ const timelineData = [
   },
 ];
 
+const AnimatedImageGallery = ({ images, activeIndex, right = false }) => {
+  return (
+    <div
+      className={`about-images-wrapper ${
+        right ? "about-images-wrapper-right" : ""
+      }`}
+    >
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={`Vila Vina ${index + 1}`}
+          className={`about-image ${right ? "about-image-right" : ""} ${
+            index === activeIndex ? "active" : ""
+          } ${index === (activeIndex + 1) % images.length ? "next" : ""}`}
+        />
+      ))}
+    </div>
+  );
+};
+
 const About = () => {
-  const [activeIndexTop, setActiveIndexTop] = useState(0);
-  const [activeIndexBottom, setActiveIndexBottom] = useState(0);
+  const [activeIndexONama, setActiveIndexONama] = useState(0);
+  const [activeIndexNasaPrica, setActiveIndexNasaPrica] = useState(0);
+  const [activeIndexMilomir, setActiveIndexMilomir] = useState(0);
+  const [activeIndexBrend, setActiveIndexBrend] = useState(0);
+  const [activeIndexVinogradi, setActiveIndexVinogradi] = useState(0);
   const [timelineIndex, setTimelineIndex] = useState(0);
 
   useEffect(() => {
-    const intervalTop = setInterval(() => {
-      setActiveIndexTop((prev) => (prev + 1) % imagesTop.length);
+    const interval = setInterval(() => {
+      setActiveIndexONama((prev) => (prev + 1) % imagesONama.length);
+      setActiveIndexNasaPrica((prev) => (prev + 1) % imagesNasaPrica.length);
+      setActiveIndexMilomir((prev) => (prev + 1) % imagesMilomir.length);
+      setActiveIndexBrend((prev) => (prev + 1) % imagesBrend.length);
+      setActiveIndexVinogradi((prev) => (prev + 1) % imagesVinogradi.length);
     }, 3000);
 
-    const intervalBottom = setInterval(() => {
-      setActiveIndexBottom((prev) => (prev + 1) % imagesBottom.length);
-    }, 3000);
-
-    return () => {
-      clearInterval(intervalTop);
-      clearInterval(intervalBottom);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -71,24 +121,13 @@ const About = () => {
 
       <section className="about-page">
         <div className="container-fluid about-container">
+          {/* 1. SEKCIJA - O NAMA */}
           <div className="row align-items-center min-vh-100 about-row">
             <div className="col-lg-6 col-12 about-images-col">
-              <div className="about-images-wrapper">
-                {imagesTop.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`Vinarija ${index + 1}`}
-                    className={`about-image ${
-                      index === activeIndexTop ? "active" : ""
-                    } ${
-                      index === (activeIndexTop + 1) % imagesTop.length
-                        ? "next"
-                        : ""
-                    }`}
-                  />
-                ))}
-              </div>
+              <AnimatedImageGallery
+                images={imagesONama}
+                activeIndex={activeIndexONama}
+              />
             </div>
 
             <div className="col-lg-6 col-12 about-text-col">
@@ -112,14 +151,15 @@ const About = () => {
                 </p>
                 <p>
                   Danas, kroz brend „Vila Vina“, porodica obrađuje šest hektara
-                  vinograda sa pažljivo odabranim sortama i minimalnom
-                  upotrebom hemije. Poseban fokus stavljen je na autohtone sorte
-                  Tamjaniku i Prokupac, koje simbolizuju tradiciju ovog kraja.
+                  vinograda sa pažljivo odabranim sortama i minimalnom upotrebom
+                  hemije. Poseban fokus stavljen je na autohtone sorte Tamjaniku
+                  i Prokupac, koje simbolizuju tradiciju ovog kraja.
                 </p>
               </div>
             </div>
           </div>
 
+          {/* 2. SEKCIJA - NAŠA PRIČA */}
           <div className="row align-items-center min-vh-100 about-row about-row-reverse">
             <div className="col-lg-6 col-12 about-text-col">
               <div className="about-text-box">
@@ -153,21 +193,135 @@ const About = () => {
             </div>
 
             <div className="col-lg-6 col-12 about-images-col">
-              <div className="about-images-wrapper about-images-wrapper-right">
-                {imagesBottom.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`Vinarija detalj ${index + 1}`}
-                    className={`about-image about-image-right ${
-                      index === activeIndexBottom ? "active" : ""
-                    } ${
-                      index === (activeIndexBottom + 1) % imagesBottom.length
-                        ? "next"
-                        : ""
-                    }`}
-                  />
-                ))}
+              <AnimatedImageGallery
+                images={imagesNasaPrica}
+                activeIndex={activeIndexNasaPrica}
+                right
+              />
+            </div>
+          </div>
+
+          {/* 3. SEKCIJA - MILOMIROVA PRIČA */}
+          <div className="row align-items-center min-vh-100 about-row">
+            <div className="col-lg-6 col-12 about-images-col">
+              <AnimatedImageGallery
+                images={imagesMilomir}
+                activeIndex={activeIndexMilomir}
+              />
+            </div>
+
+            <div className="col-lg-6 col-12 about-text-col">
+              <div className="about-text-box">
+                <span className="about-subtitle">Milomirova priča</span>
+                <h1>Put strasti i nasleđe</h1>
+                <p>
+                  Milomir Milosavljević, osnivač vinarije Vila Vina, svoj vinski
+                  put započeo je 1972. godine odlaskom u Švajcarsku, gde je
+                  radio u vinariji Rebbaugenossenschaft u mestu Spiez. Tokom 35
+                  godina rada u inostranstvu stekao je dragoceno iskustvo,
+                  usvajajući najbolje prakse evropskog vinogradarstva i spajajući
+                  preciznost nemačkih i sofisticiranost francuskih vinara.
+                </p>
+                <p>
+                  Po povratku u rodno Bučje 2005. godine, Milomir podiže nove
+                  vinograde i obnavlja porodičnu tradiciju staru više vekova. Sa
+                  jasnom vizijom, kombinuje međunarodne sorte sa autohtonim
+                  srpskim vinima, postavljajući temelje savremenog pristupa
+                  proizvodnji.
+                </p>
+                <p>
+                  U tom procesu osniva i razvija sopstveni brend vinarije pod
+                  nazivom Vila Vina. Danas, uz podršku sina Dragana i unuka
+                  Branka — treće generacije — Milomir i dalje aktivno učestvuje
+                  u radu vinarije, stvarajući vina koja povezuju tradiciju,
+                  znanje i modernu tehnologiju.
+                </p>
+                <p>
+                  Fotografija „Ruke i grožđe“, autora Martina Čandira, danas
+                  predstavlja simbol manifestacije „Dani Prokupca“, koja se
+                  održava svake godine u oktobru širom Srbije.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. SEKCIJA - O BRENDU */}
+          <div className="row align-items-center min-vh-100 about-row about-row-reverse">
+            <div className="col-lg-6 col-12 about-text-col">
+              <div className="about-text-box">
+                <span className="about-subtitle">O brendu</span>
+                <h2>Suština Vila Vina</h2>
+                <p>
+                  Po povratku iz Švajcarske, Milomir Milosavljević osniva brend
+                  VILA VINA — kao izraz svoje vizije, znanja i dubokih porodičnih
+                  korena. Ideja je bila jasna: spojiti tradiciju i inovaciju u
+                  vinima koja nose autentičan karakter i savremen kvalitet.
+                </p>
+                <p>
+                  Danas Vila Vina predstavlja vinariju sa devet etiketa, koje
+                  obuhvataju raspon od svežih i aromatičnih belih vina do moćnih
+                  crvenih vina dozrelih u bariku. Svaka boca nosi pečat ručnog
+                  rada, pažnje prema detaljima i posvećenosti vrhunskom kvalitetu.
+                </p>
+                <p>
+                  Vina iz brenda Vila Vina pronašla su svoj put do nekih od
+                  najprestižnijih svetskih tržišta, uključujući Nemačku, Japan,
+                  Kinu, Austriju, Sjedinjene Američke Države, Estoniju i
+                  Francusku, potvrđujući vrednost i prepoznatljivost brenda na
+                  međunarodnoj sceni.
+                </p>
+                <p>
+                  Vila Vina je više od brenda — to je način života i filozofija
+                  koja slavi autentičnost, kvalitet i trajnu vezu između
+                  vinograda, porodice i vremena.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-lg-6 col-12 about-images-col">
+              <AnimatedImageGallery
+                images={imagesBrend}
+                activeIndex={activeIndexBrend}
+                right
+              />
+            </div>
+          </div>
+
+          {/* 5. SEKCIJA - VINOGRADI */}
+          <div className="row align-items-center min-vh-100 about-row">
+            <div className="col-lg-6 col-12 about-images-col">
+              <AnimatedImageGallery
+                images={imagesVinogradi}
+                activeIndex={activeIndexVinogradi}
+              />
+            </div>
+
+            <div className="col-lg-6 col-12 about-text-col">
+              <div className="about-text-box">
+                <span className="about-subtitle">Vinogradi</span>
+                <h1>Terroir</h1>
+                <p>
+                  Vinogradi porodice Milosavljević prostiru se na 6 hektara
+                  bogatog, mineralnog zemljišta sa žutim peskom, okrenuti jugu
+                  na nadmorskoj visini od 300 do 380 metara, u podnožju Kopaonika
+                  i Goča. Klima je umereno kontinentalna, s toplim letima i
+                  svežim noćima, što stvara idealne uslove za vinograd.
+                </p>
+                <p>
+                  Gaje se autohtone sorte Tamjanika i Prokupac, kao i
+                  međunarodne sorte Sauvignon Blanc, Cabernet Sauvignon, dok su
+                  Merlot i Shiraz specijaliteti vinarije.
+                </p>
+                <p>
+                  Vina odležavaju u savremenom podrumu kapaciteta 45,000 litara,
+                  u inoks tankovima i barik buradima od srpskog hrasta. Od ovih
+                  vinograda nastalo je 9 etiketa vrhunskih vina, koja odražavaju
+                  spoj tradicije i savremene tehnologije.
+                </p>
+                <p>
+                  Vinarija Milosavljević primenjuje integrisanu proizvodnju,
+                  uvodeći principe organske proizvodnje.
+                </p>
               </div>
             </div>
           </div>
@@ -177,8 +331,8 @@ const About = () => {
               <span className="about-subtitle">Vremenska linija</span>
               <h2>Put razvoja naše vinarije</h2>
               <p>
-                Vidič kroz godine. Upoznajte ključne trenutke u
-                razvoju vinarije Vila Vina.
+                Vodič kroz godine. Upoznajte ključne trenutke u razvoju vinarije
+                Vila Vina.
               </p>
             </div>
 
@@ -217,6 +371,7 @@ const About = () => {
           </section>
         </div>
       </section>
+
       <Footer />
     </>
   );

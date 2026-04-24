@@ -99,6 +99,7 @@ const winesData = [
 ];
 
 const ITEMS_PER_PAGE = 4;
+const ORDER_ITEMS_PER_PAGE = 3;
 const ANIMATION_DURATION = 3000;
 
 const AnimatedCircle = ({ value, label, suffix = "" }) => {
@@ -152,6 +153,7 @@ const AnimatedCircle = ({ value, label, suffix = "" }) => {
 const Wines = () => {
   const [selectedWine, setSelectedWine] = useState(null);
   const [page, setPage] = useState(0);
+  const [orderPage, setOrderPage] = useState(0);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -175,6 +177,13 @@ const Wines = () => {
     const start = page * ITEMS_PER_PAGE;
     return winesData.slice(start, start + ITEMS_PER_PAGE);
   }, [page]);
+
+  const totalOrderPages = Math.ceil(winesData.length / ORDER_ITEMS_PER_PAGE);
+
+  const visibleOrderWines = useMemo(() => {
+    const start = orderPage * ORDER_ITEMS_PER_PAGE;
+    return winesData.slice(start, start + ORDER_ITEMS_PER_PAGE);
+  }, [orderPage]);
 
   const selectedItems = useMemo(() => {
     return winesData.filter((wine) => quantities[wine.id] > 0);
@@ -216,6 +225,14 @@ const Wines = () => {
 
   const prevPage = () => {
     setPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const nextOrderPage = () => {
+    setOrderPage((prev) => (prev + 1) % totalOrderPages);
+  };
+
+  const prevOrderPage = () => {
+    setOrderPage((prev) => (prev - 1 + totalOrderPages) % totalOrderPages);
   };
 
   const handleQuantityChange = (id, type) => {
@@ -384,7 +401,7 @@ ${formData.note || "Nema napomene"}
                   <h3>Izaberite vina</h3>
 
                   <div className="order-products-list">
-                    {winesData.map((wine) => (
+                    {visibleOrderWines.map((wine) => (
                       <div key={wine.id} className="order-product-item">
                         <div className="order-product-info">
                           <h4>{wine.name}</h4>
@@ -419,6 +436,44 @@ ${formData.note || "Nema napomene"}
                       </div>
                     ))}
                   </div>
+
+                  {totalOrderPages > 1 && (
+                    <div
+                      style={{
+                        marginTop: "14px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        onClick={prevOrderPage}
+                        className="qty-btn"
+                      >
+                        ←
+                      </button>
+
+                      <span
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "700",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {orderPage + 1} / {totalOrderPages}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={nextOrderPage}
+                        className="qty-btn"
+                      >
+                        →
+                      </button>
+                    </div>
+                  )}
 
                   <div className="order-summary">
                     <h4>Pregled porudžbine</h4>

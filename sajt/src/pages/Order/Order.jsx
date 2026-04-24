@@ -14,6 +14,7 @@ const winesData = [
   { id: 7, name: "Shiraz", price: 1300, category: "classic" },
   { id: 8, name: "Sauvignon Blanc", price: 900, category: "classic" },
   { id: 9, name: "Cabernet Sauvignon", price: 1000, category: "classic" },
+  { id: 10, name: "Veliki Župan", price: 6000, category: "premium" },
 ];
 
 const ITEMS_PER_PAGE = 5;
